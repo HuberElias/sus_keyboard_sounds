@@ -1,4 +1,5 @@
 # imports
+import sys
 from pygame import mixer
 import keyboard
 mixer.init()
@@ -103,6 +104,22 @@ def handle_delete():
         channel = 0
     mixer.Channel(channel).play(mixer.Sound("./sounds/delete.mp3"))
 
+def handle_b():
+    global channel
+    if channel < 7:
+        channel += 1
+    else:
+        channel = 0
+    mixer.Channel(channel).play(mixer.Sound("./sounds/b.mp3"))
+
+def handle_w():
+    global channel
+    if channel < 7:
+        channel += 1
+    else:
+        channel = 0
+    mixer.Channel(channel).play(mixer.Sound("./sounds/w.mp3"))
+
 
 # hotkeys
 keyboard.add_hotkey("s", handle_s)
@@ -117,11 +134,14 @@ keyboard.add_hotkey("f", handle_f)
 keyboard.add_hotkey("n", handle_n)
 keyboard.add_hotkey("enter", handle_enter)
 keyboard.add_hotkey("backspace", handle_delete)
-#sos = keyboard._listener
+keyboard.add_hotkey("b", handle_b)
+keyboard.add_hotkey("w", handle_w)
 
 
 
 # main
 while True:
-    #sos.listen()
-    pass
+    try:
+        pass
+    except KeyboardInterrupt:
+        sys.exit()
