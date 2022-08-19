@@ -26,11 +26,11 @@ def set_hotkeys():
     keyboard.add_hotkey("f", lambda: handle_press("f"))
     keyboard.add_hotkey("n", lambda: handle_press("n"))
     keyboard.add_hotkey("enter", lambda: handle_press("enter"))
-    keyboard.add_hotkey("backspace", lambda: handle_press("delete"))
+    keyboard.add_hotkey("backspace", lambda: handle_press("backspace"))
     keyboard.add_hotkey("b", lambda: handle_press("b"))
     keyboard.add_hotkey("w", lambda: handle_press("w"))
     keyboard.add_hotkey("k", lambda: handle_press("k"))
-    keyboard.add_hotkey("delete", lambda: handle_press("entf"))
+    keyboard.add_hotkey("delete", lambda: handle_press("delete"))
 
 
 def handle_pause():
