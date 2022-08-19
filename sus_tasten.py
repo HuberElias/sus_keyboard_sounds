@@ -8,11 +8,12 @@ mixer.init()
 # variables
 channel = 0
 is_paused = False
+pause_button = "pause"
 
 
 # functions
 def set_hotkeys():
-    keyboard.add_hotkey("p", handle_pause)
+    keyboard.add_hotkey(pause_button, handle_pause)
 
     keyboard.add_hotkey("s", lambda: handle_press("s"))
     keyboard.add_hotkey("a", lambda: handle_press("a"))
@@ -38,7 +39,7 @@ def handle_pause():
 
     if not(is_paused):
         keyboard.unhook_all_hotkeys()
-        keyboard.add_hotkey("p", handle_pause)
+        keyboard.add_hotkey(pause_button, handle_pause)
         is_paused = not(is_paused)
     else:
         keyboard.unhook_all_hotkeys()
