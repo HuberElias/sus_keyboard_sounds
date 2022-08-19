@@ -46,11 +46,15 @@ def handle_pause():
         set_hotkeys()
         is_paused = not(is_paused)
 
+
     if channel < 7:
         channel += 1
     else:
         channel = 0
-    mixer.Channel(channel).play(mixer.Sound("./sounds/pause.mp3"))
+    if is_paused:
+        mixer.Channel(channel).play(mixer.Sound("./sounds/play.mp3"))
+    else:
+        mixer.Channel(channel).play(mixer.Sound("./sounds/pause.mp3"))
 
 
 def handle_press(args):
